@@ -138,7 +138,7 @@ func _spawn_hero() -> void:
 	collision.shape = shape
 	hero.add_child(collision)
 	hero_visual = Assets.make_hero()
-	hero_visual.position.y = -0.9
+	hero_visual.position.y = -0.1
 	hero.add_child(hero_visual)
 	add_child(hero)
 
