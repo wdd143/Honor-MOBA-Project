@@ -358,7 +358,7 @@ func _spawn_hit_spark(pos: Vector3) -> void:
 	spark.material_override = _mat_emissive(Color(0.58, 0.9, 1.0), Color(0.18, 0.68, 1.0))
 	add_child(spark)
 	var timer := get_tree().create_timer(0.22)
-	timer.timeout.connect(func(): if is_instance_valid(spark): spark.queue_free())
+	timer.timeout.connect(spark.queue_free)
 
 func _update_fx(delta: float) -> void:
 	for fx in active_fx.duplicate():
