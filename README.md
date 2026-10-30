@@ -1,26 +1,37 @@
-# Honor MOBA — Godot Edition
+# Honor MOBA — Godot 4 Edition
 
-A small, original 3D lane-based MOBA prototype built for **Godot 4.x**. The project uses procedural primitive meshes, so it does not require downloaded art assets.
+An original 3D lane-based MOBA prototype for **Godot 4.x**. The project is moving from a primitive gameplay test toward an original fantasy arena game.
 
 ## Run it
-1. Install Godot 4.x (standard desktop editor).
+
+1. Install the free Godot 4.x Standard desktop editor.
 2. Download this repository as a ZIP and extract it.
-3. In Godot, choose **Import**, select this folder's `project.godot`, then open it.
-4. Press **F6** or the Play Project button.
+3. In Godot, choose **Import**, select this folder's project.godot, then open it.
+4. Press **F5** to run the project (or **F6** to run the current main scene).
 
 ## Controls
+
 - **W A S D** — move
-- **Space** — basic attack against the nearest enemy minion
-- **Q** — area skill
-- **R** — restart after game over
+- **Space** — sword attack against the nearest enemy minion or jungle monster
+- **Q** — Wind Nova area skill
+- **R** — restart after a core is destroyed
 
-## Current prototype
-- 3D three-lane arena, blue and red bases
-- Towers and simple procedural trees
-- Controllable blue hero with a follow camera
-- Blue and red minion waves
-- Basic attack and Q area skill
-- Simple HUD and cooldown display
+## Current build
 
-## Notes
-This is a playable prototype foundation, not a finished commercial game. It uses original placeholder geometry and does not include proprietary League of Legends or Honor of Kings characters, maps, logos, audio, or other copyrighted assets. The project has been authored for Godot 4.x but still needs to be opened and tested in the installed Godot editor on your computer.
+- 3D three-lane arena, blue and red bases, towers and a follow camera
+- Collision on the arena floor, lanes and base platforms
+- Original procedural Wind Ronin hero with armor, scarf, sword and basic movement/attack animation
+- Blue and red lane soldiers with simple automated waves and combat
+- Two jungle monster camps with large/small Ancient Moss Golems
+- Wind Nova rings, sword-hit sparks, cooldown HUD and core health
+- Procedural terrain shader, stylized foliage, lighting, sky and distance fog
+
+## Important asset status
+
+The characters and effects in this build are **first-pass procedural models made from primitive meshes**. They are not yet production-grade imported 3D models, and the hero does not yet have a skeletal rig. The project now includes an asset pipeline guide for adding licensed GLB/glTF characters, animations and PBR textures from sources such as Quaternius, KayKit and Poly Haven.
+
+No League of Legends or Honor of Kings extracted assets are included. See docs/ASSET_PIPELINE.md for the planned licensed asset workflow.
+
+## Testing note
+
+The source files have been updated for Godot 4, but this environment cannot launch the Godot editor to confirm a live runtime. Please import the project in Godot 4 and check the Output panel for errors on first launch.
