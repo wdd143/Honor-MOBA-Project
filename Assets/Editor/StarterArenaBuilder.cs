@@ -1,4 +1,3 @@
-using System.IO;
 using HonorMoba.CameraSystem;
 using HonorMoba.Combat;
 using HonorMoba.Hero;
@@ -16,6 +15,7 @@ namespace HonorMoba.EditorTools
     public static class StarterArenaBuilder
     {
         private const string SceneFolder = "Assets/Scenes";
+        private const string MaterialsFolder = "Assets/Materials";
         private const string ScenePath = SceneFolder + "/MOBA_StarterArena.unity";
 
         [MenuItem("Honor MOBA/Create Starter Arena")]
@@ -26,6 +26,8 @@ namespace HonorMoba.EditorTools
 
             if (!AssetDatabase.IsValidFolder(SceneFolder))
                 AssetDatabase.CreateFolder("Assets", "Scenes");
+            if (!AssetDatabase.IsValidFolder(MaterialsFolder))
+                AssetDatabase.CreateFolder("Assets", "Materials");
 
             Scene scene = EditorSceneManager.NewScene(
                 NewSceneSetup.EmptyScene, NewSceneMode.Single);
@@ -130,13 +132,22 @@ namespace HonorMoba.EditorTools
 
         private static Material MakeMaterial(string name, Color color)
         {
-            Shader shader = Shader.Find("Universal Render Pipeline/Lit");
-            if (shader == null) shader = Shader.Find("Standard");
-            if (shader == null) shader = Shader.Find("Unlit/Color");
+            string path = MaterialsFolder + "/" + name + ".mat";
+            Material material = AssetDatabase.LoadAssetAtPath<Material>(path);
 
-            Material material = new Material(shader);
-            material.name = name;
+            if (material == null)
+            {
+                Shader shader = Shader.Find("Universal Render Pipeline/Lit");
+                if (shader == null) shader = Shader.Find("Standard");
+                if (shader == null) shader = Shader.Find("Unlit/Color");
+
+                material = new Material(shader);
+                material.name = name;
+                AssetDatabase.CreateAsset(material, path);
+            }
+
             material.color = color;
+            EditorUtility.SetDirty(material);
             return material;
         }
 
