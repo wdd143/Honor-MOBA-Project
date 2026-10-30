@@ -58,7 +58,7 @@ func _physics_process(delta: float) -> void:
 	var right := camera.global_basis.x
 	forward.y = 0.0
 	right.y = 0.0
-	var direction := (right.normalized() * input_dir.x + forward.normalized() * input_dir.y).normalized()
+	var direction := (right.normalized() * input_dir.x - forward.normalized() * input_dir.y).normalized()
 	hero.velocity.x = direction.x * HERO_SPEED
 	hero.velocity.z = direction.z * HERO_SPEED
 	if not hero.is_on_floor():
