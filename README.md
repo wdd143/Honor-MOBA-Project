@@ -1,35 +1,26 @@
-# Honor MOBA Project
+# Honor MOBA — Godot Edition
 
-An original 3D lane-based MOBA prototype built with Unity. The project takes inspiration from common MOBA gameplay structures, but uses original project code and placeholder visuals. It does not include proprietary game characters, maps, logos, music, voice lines or other copied game assets.
+A small, original 3D lane-based MOBA prototype built for **Godot 4.x**. The project uses procedural primitive meshes, so it does not require downloaded art assets.
 
-## Engine
-- **Unity 6.3 LTS**
-- Editor version: `6000.3.0f1`
+## Run it
+1. Install Godot 4.x (standard desktop editor).
+2. Download this repository as a ZIP and extract it.
+3. In Godot, choose **Import**, select this folder's `project.godot`, then open it.
+4. Press **F6** or the Play Project button.
 
-## First milestone: 3D starter arena
-The first milestone includes:
-- Unity project structure (`Assets`, `Packages`, `ProjectSettings`)
-- One-click scene generation from the Unity Editor
-- Three greybox lanes, two team bases and six outer towers
-- Simple jungle clearings and placeholder trees
-- A controllable blue hero capsule
-- Camera follow, health component and keyboard movement
+## Controls
+- **W A S D** — move
+- **Space** — basic attack against the nearest enemy minion
+- **Q** — area skill
+- **R** — restart after game over
 
-## Create the starter scene
-1. Open this repository as a Unity project in Unity Hub.
-2. In the Unity Editor select **Honor MOBA > Create Starter Arena**.
-3. Open `Assets/Scenes/MOBA_StarterArena.unity`.
-4. Press Play and move with **WASD** or the **arrow keys**.
+## Current prototype
+- 3D three-lane arena, blue and red bases
+- Towers and simple procedural trees
+- Controllable blue hero with a follow camera
+- Blue and red minion waves
+- Basic attack and Q area skill
+- Simple HUD and cooldown display
 
-See [Docs/FIRST_OPEN.md](Docs/FIRST_OPEN.md) for setup instructions and input troubleshooting.
-
-## Code layout
-- `Assets/Scripts/Core`: teams and shared game types
-- `Assets/Scripts/Combat`: health and combat foundations
-- `Assets/Scripts/Hero`: hero movement and input
-- `Assets/Scripts/Camera`: camera follow
-- `Assets/Editor`: editor tools for generating test scenes
-- `Docs`: roadmap and setup notes
-
-## Important
-This repository contains the Unity source project, not a ready-to-install Android game. The Unity Editor currently needs to be run on a Windows or macOS computer to generate the scene, test gameplay and build a device version. The scene is a greybox prototype; art, animation, minions, skills, items, AI and mobile controls will be developed in later milestones.
+## Notes
+This is a playable prototype foundation, not a finished commercial game. It uses original placeholder geometry and does not include proprietary League of Legends or Honor of Kings characters, maps, logos, audio, or other copyrighted assets. The project has been authored for Godot 4.x but still needs to be opened and tested in the installed Godot editor on your computer.
