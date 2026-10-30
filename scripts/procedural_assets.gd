@@ -94,12 +94,18 @@ static func make_minion(blue_team: bool) -> Node3D:
 	var body := Node3D.new()
 	body.name = "BodyPivot"
 	root.add_child(body)
-	_piece(body, "Armor", _box(Vector3(0.72, 0.9, 0.48)), Vector3(0, 0.88, 0), team)
-	_piece(body, "Helmet", _sphere(0.34), Vector3(0, 1.52, 0), trim)
-	_piece(body, "Visor", _box(Vector3(0.48, 0.1, 0.38)), Vector3(0, 1.5, -0.2), dark)
-	_piece(body, "Shield", _box(Vector3(0.38, 0.58, 0.13)), Vector3(-0.48, 0.86, -0.12), trim)
-	_piece(body, "Spear", _cylinder(0.045, 1.45), Vector3(0.48, 1.02, -0.18), dark)
-	_piece(body, "SpearHead", _cone(0.11, 0.28), Vector3(0.48, 1.86, -0.18), trim)
+	_piece(body, "Armor", _box(Vector3(0.72, 0.84, 0.48)), Vector3(0, 0.82, 0), team)
+	_piece(body, "Helmet", _sphere(0.34), Vector3(0, 1.48, 0), trim)
+	_piece(body, "Visor", _box(Vector3(0.48, 0.1, 0.38)), Vector3(0, 1.46, -0.2), dark)
+	_piece(body, "LeftLeg", _box(Vector3(0.2, 0.46, 0.25)), Vector3(-0.19, 0.23, 0.02), dark)
+	_piece(body, "RightLeg", _box(Vector3(0.2, 0.46, 0.25)), Vector3(0.19, 0.23, 0.02), dark)
+	_piece(body, "LeftBoot", _box(Vector3(0.28, 0.13, 0.38)), Vector3(-0.19, 0.05, -0.05), trim)
+	_piece(body, "RightBoot", _box(Vector3(0.28, 0.13, 0.38)), Vector3(0.19, 0.05, -0.05), trim)
+	_piece(body, "LeftArm", _box(Vector3(0.2, 0.55, 0.22)), Vector3(-0.48, 0.77, 0), team)
+	_piece(body, "RightArm", _box(Vector3(0.2, 0.55, 0.22)), Vector3(0.48, 0.77, 0), team)
+	_piece(body, "Shield", _box(Vector3(0.38, 0.58, 0.13)), Vector3(-0.5, 0.82, -0.12), trim)
+	_piece(body, "Spear", _cylinder(0.045, 1.45), Vector3(0.5, 0.98, -0.18), dark)
+	_piece(body, "SpearHead", _cone(0.11, 0.28), Vector3(0.5, 1.82, -0.18), trim)
 	return root
 
 static func make_golem() -> Node3D:
