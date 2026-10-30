@@ -160,6 +160,7 @@ func _make_minion(pos: Vector3, blue: bool) -> void:
 	var unit := Node3D.new()
 	unit.name = "Blue Minion" if blue else "Red Minion"
 	unit.position = pos
+	unit.rotation.y = -PI / 2.0 if blue else PI / 2.0
 	unit.set_meta("blue", blue)
 	unit.set_meta("hp", 120.0)
 	unit.set_meta("attack_timer", randf_range(0.1, 0.8))
@@ -212,6 +213,11 @@ func _update_team_minions(units: Array[Node3D], opponents: Array[Node3D], direct
 		if not is_instance_valid(unit):
 			units.erase(unit)
 			continue
+		var visual := unit.get_child(0) as Node3D
+		if visual:
+			var body_pivot := visual.get_node_or_null("BodyPivot") as Node3D
+			if body_pivot:
+				body_pivot.rotation.z = sin(game_time * 7.0 + unit.position.x) * 0.035
 		var hp := float(unit.get_meta("hp"))
 		if hp <= 0.0:
 			units.erase(unit)
